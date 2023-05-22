@@ -3,7 +3,7 @@ module github.com/MartyHub/txx
 go 1.20
 
 require (
-	github.com/stretchr/testify v1.8.2
+	github.com/stretchr/testify v1.8.3
 	modernc.org/sqlite v1.22.1
 )
 
