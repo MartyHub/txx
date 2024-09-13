@@ -5,8 +5,6 @@ import (
 	"database/sql"
 )
 
-var ctxKey struct{} //nolint:gochecknoglobals
-
 // Current transaction stored in context.
 type Current struct {
 	Tx   *sql.Tx
@@ -81,6 +79,10 @@ func Wrap(ctx context.Context, db *sql.DB, opts *sql.TxOptions, f func(ctx conte
 
 	return err
 }
+
+type key int
+
+var ctxKey key //nolint:gochecknoglobals
 
 // Get the current transaction from given context.
 func Get(ctx context.Context) Current {
